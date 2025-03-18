@@ -17,6 +17,14 @@
         </form>
     </div>
     
+    {% if error %}
+    <div class="error-container">
+        <div class="error">
+            <p>⚠️ {{ error }}</p>
+        </div>
+    </div>
+    {% endif %}
+    
     {% if result %}
     <div class="result-container">
         {% if result == 'spam' %}

@@ -2,7 +2,10 @@ services:
   - type: web
     name: sms-spam-classifier
     env: python
-    buildCommand: pip install -r requirements.txt && python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords')"
+    buildCommand: |
+      mkdir -p nltk_data
+      pip install -r requirements.txt
+      python -c "import nltk; nltk.download('punkt', download_dir='nltk_data'); nltk.download('stopwords', download_dir='nltk_data'); nltk.download('punkt_tab', download_dir='nltk_data')"
     startCommand: gunicorn app:app
     plan: free
     envVars:
@@ -10,4 +13,6 @@ services:
         value: 3.9.0
       - key: SECRET_KEY
         generateValue: true
-    healthCheckPath: / 
+      - key: NLTK_DATA
+        value: /opt/render/project/src/nltk_data
+    healthCheckPath: /health 

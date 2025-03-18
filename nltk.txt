@@ -1,2 +1,3 @@
 punkt
-stopwords 
+stopwords
+punkt_tab 

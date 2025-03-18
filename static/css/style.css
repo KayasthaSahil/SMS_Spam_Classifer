@@ -120,6 +120,23 @@ label {
     background-color: #2980b9;
 }
 
+/* Error Styles */
+.error-container {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+.error {
+    padding: 1.5rem;
+    border-radius: 8px;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 1.2rem;
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
 /* Results Styles */
 .result-container {
     margin: 2rem 0;
