@@ -34,7 +34,7 @@ python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords')"
    - `vectorizer.pkl` - TF-IDF vectorizer
    - `model.pkl` - Trained classification model
 
-### Running the Application
+### Running the Application Locally
 
 To start the application:
 ```
@@ -42,6 +42,21 @@ python app.py
 ```
 
 Open your browser and navigate to `http://127.0.0.1:5000`.
+
+## Deployment on Render
+
+This application is configured for deployment on Render.
+
+### Deployment Steps
+
+1. Create a new Web Service on Render.
+2. Connect your GitHub repository.
+3. Use the following settings:
+   - **Environment**: Python
+   - **Build Command**: `pip install -r requirements.txt && python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords')"`
+   - **Start Command**: `gunicorn app:app`
+
+Or, you can use the `render.yaml` file in this repository to set up a Blueprint for deployment.
 
 ## Project Structure
 

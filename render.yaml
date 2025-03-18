@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: sms-spam-classifier
+    env: python
+    buildCommand: pip install -r requirements.txt && python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords')"
+    startCommand: gunicorn app:app
+    plan: free
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.0
+      - key: SECRET_KEY
+        generateValue: true
+    healthCheckPath: / 
