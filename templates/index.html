@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Email/SMS Spam Classifier</h1>
+    <p>Enter the message below to check if it's spam or not.</p>
+    
+    <div class="form-container">
+        <form method="POST" action="{{ url_for('index') }}">
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea name="message" id="message" class="message-input" rows="5" placeholder="Type your message here...">{{ input_message }}</textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="predict-btn">Predict</button>
+            </div>
+        </form>
+    </div>
+    
+    {% if result %}
+    <div class="result-container">
+        {% if result == 'spam' %}
+        <div class="result spam">
+            <p>🚨 This message is SPAM!</p>
+        </div>
+        {% else %}
+        <div class="result not-spam">
+            <p>✅ This message is NOT Spam!</p>
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
+    
+    <div class="info-section">
+        <h2>How it works</h2>
+        <p>This application uses machine learning to predict whether a message is spam or not. The model has been trained on thousands of messages and can identify patterns that indicate spam content.</p>
+        <p>The system uses natural language processing techniques to preprocess the text before making a prediction.</p>
+    </div>
+</div>
+{% endblock %} 

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>About the Spam Classifier</h1>
+    <div class="about-content">
+        <h2>Project Information</h2>
+        <p>This is a machine learning-based Email/SMS spam classifier that can identify whether a message is spam or not.</p>
+        
+        <h2>How it Works</h2>
+        <p>The system uses a trained machine learning model to classify messages. Here's the process:</p>
+        <ol>
+            <li><strong>Text Preprocessing</strong>: When you enter a message, it's first cleaned and preprocessed.</li>
+            <li><strong>Feature Extraction</strong>: The preprocessed text is converted into numerical features using TF-IDF vectorization.</li>
+            <li><strong>Classification</strong>: These features are fed into the machine learning model which predicts if the message is spam or not.</li>
+        </ol>
+        
+        <h2>Technologies Used</h2>
+        <ul>
+            <li>Flask - Web framework</li>
+            <li>NLTK - For natural language processing</li>
+            <li>Scikit-learn - For machine learning algorithms</li>
+            <li>HTML/CSS - For the user interface</li>
+        </ul>
+        
+        <h2>Model Performance</h2>
+        <p>The spam classification model was trained on a dataset of labeled spam and non-spam messages. The model achieves high accuracy in identifying spam messages.</p>
+    </div>
+</div>
+{% endblock %} 
